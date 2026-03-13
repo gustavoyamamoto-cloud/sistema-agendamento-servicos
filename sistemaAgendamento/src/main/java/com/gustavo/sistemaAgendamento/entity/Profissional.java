@@ -6,18 +6,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Cliente {
+public class Profissional {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    
     private String nome;
-    private String telefone;
-    private String email;
+    private String especialidade;
 
     /* Construtor */
-    public Cliente() {
+    public Profissional() {
     }
 
     /* Getters e Setters */
@@ -33,17 +32,11 @@ public class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public String getTelefone() {
-        return telefone;
+    public String getEspecialidade() {
+        return especialidade;
     }
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmal(String email) {
-        this.email = email;
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
     }
 
     
