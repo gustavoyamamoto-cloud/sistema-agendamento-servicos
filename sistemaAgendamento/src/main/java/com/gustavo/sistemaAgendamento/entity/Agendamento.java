@@ -3,17 +3,32 @@ package com.gustavo.sistemaAgendamento.entity;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import ch.qos.logback.core.status.Status;
+import com.gustavo.sistemaAgendamento.enuns.Status;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Agendamento {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private LocalDate data;
     private LocalTime hora;
     private Status status;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "profissional_id")
     private Profissional profissional;
     
     /* Contrutor */
@@ -69,7 +84,10 @@ public class Agendamento {
         this.profissional = profissional;
     }
 
-    
+    /* ToString */
+    public String toString(){
+        return String.format("|Id: %5d |Data: %10s |Hora: %6s |Status: %15s |Cliente: %15s |Profissional: %15s", getId(), getData(), getHora(), getStatus(), getCliente(), getProfissional());
+    }
 
     
 

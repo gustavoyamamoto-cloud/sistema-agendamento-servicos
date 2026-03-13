@@ -46,5 +46,9 @@ public class Cliente {
         this.email = email;
     }
 
+    /* ToString */
+    public String toString(){
+        return String.format("Id: %5d |Nome: %15s |Telefone: %11s |Email: %s", getId(), getNome(), getTelefone(), getEmail());
+    }
     
 }

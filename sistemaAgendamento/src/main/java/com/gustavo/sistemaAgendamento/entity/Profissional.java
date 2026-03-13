@@ -11,7 +11,7 @@ public class Profissional {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
+
     private String nome;
     private String especialidade;
 
@@ -39,5 +39,9 @@ public class Profissional {
         this.especialidade = especialidade;
     }
 
+    /* ToString */
+    public String toString(){
+        return String.format("|Id: %5d |Nome: %15s |Especialidade: %s", getId(), getNome(), getEspecialidade());
+    }
     
 }
