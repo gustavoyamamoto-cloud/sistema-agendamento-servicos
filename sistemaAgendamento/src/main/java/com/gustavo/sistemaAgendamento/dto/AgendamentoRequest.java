@@ -9,7 +9,6 @@ public class AgendamentoRequest {
     
     private LocalDate data;
     private LocalTime hora;
-    private Status status;
     private Integer clienteId;
     private Integer profissionalId;
 
@@ -29,12 +28,6 @@ public class AgendamentoRequest {
     }
     public void setHora(LocalTime hora) {
         this.hora = hora;
-    }
-    public Status getStatus() {
-        return status;
-    }
-    public void setStatus(Status status) {
-        this.status = status;
     }
     public Integer getClienteId() {
         return clienteId;

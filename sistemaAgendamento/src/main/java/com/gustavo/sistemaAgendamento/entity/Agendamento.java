@@ -6,6 +6,8 @@ import java.time.LocalTime;
 import com.gustavo.sistemaAgendamento.enuns.Status;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,6 +23,8 @@ public class Agendamento {
 
     private LocalDate data;
     private LocalTime hora;
+
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     @ManyToOne

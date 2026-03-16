@@ -50,7 +50,7 @@ public class AgendamentoService {
         Agendamento a = new Agendamento();
         a.setData(dto.getData());
         a.setHora(dto.getHora());
-        a.setStatus(dto.getStatus());
+        a.setStatus(Status.AGENDADO);
         
         Cliente c = clienteRepository.findById(dto.getClienteId())
         .orElseThrow(() -> new ClienteNaoExisteExceptions("Id do cliente não encontrado"));
@@ -94,7 +94,9 @@ public class AgendamentoService {
 
     //Deletar
     public void deletar(int id){
-        agendamentoRepository.deleteById(id);
+        Agendamento a = agendamentoRepository.findById(id)
+        .orElseThrow(() -> new AgendamentoNaoExisteExceptions("Id do agendamento não encontrado"));
+        agendamentoRepository.delete(a);
     }
     
 }

@@ -34,7 +34,7 @@ public class ClienteService {
         Cliente c = new Cliente();
         c.setNome(dto.getNome());
         c.setTelefone(dto.getTelefone());
-        c.setEmal(dto.getEmail());
+        c.setEmail(dto.getEmail());
         return c;
     }
 

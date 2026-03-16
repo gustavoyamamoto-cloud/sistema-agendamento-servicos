@@ -16,6 +16,8 @@ import com.gustavo.sistemaAgendamento.dto.AgendamentoResponse;
 import com.gustavo.sistemaAgendamento.entity.Agendamento;
 import com.gustavo.sistemaAgendamento.service.AgendamentoService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/agendamentos")
 public class AgendamentoController {
@@ -30,7 +32,7 @@ public class AgendamentoController {
     
     //Cadastrar
     @PostMapping
-    public AgendamentoResponse cadastrar(@RequestBody AgendamentoRequest dto){
+    public AgendamentoResponse cadastrar(@RequestBody @Valid AgendamentoRequest dto){
         Agendamento a = agendamentoService.cadastrar(dto);
         return agendamentoService.toResponse(a);
     }
